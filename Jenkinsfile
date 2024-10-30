@@ -19,8 +19,15 @@ pipeline {
             steps {
                 sh '''
                 apache2 -v
+                '''
+            }
+        }
+        stage('Test HTTP') {
+            steps {
+                sh '''
                 curl http://127.0.0.1/test1.html
                 curl http://127.0.0.1/index.php
+                curl http://127.0.0.1/
                 '''
             }
         }
